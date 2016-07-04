@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="cdpSpa">
+<head>
+  <meta charset="UTF-8">
+  <title>CDP SPA</title>
+
+  <link rel="stylesheet" href="bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="app.css"/>
+
+  <script src="angular.js"></script>
+  <script src="angular-ui-router.js"></script>
+  <script src="angular-mocks.js"></script>
+
+  <script src="app.js"></script>
+
+
+</head>
+<body ng-controller="mainController">
+  <div class="main">
+    <ul class="temp-list">
+      <a ui-sref="login">Login page</a>
+      <a ui-sref="courses">all courses</a>
+      <a ui-sref="editcourse">edit cource</a>
+      <a ui-sref="addcourse">add course</a>
+    </ul>
+
+    <div class="header well well-sm row">
+      <a href="#" class="logo col-lg-1">
+        <img src="#" width="50px" height="50px" alt="logo" class="img-circle">
+      </a>
+      <h1 class="col-lg-2 logo-title">Logo</h1>
+      <a class="btn btn-default col-lg-1" href="#" role="button">Курсы</a>
+
+      <div class="col-lg-2 col-lg-offset-6 text-right">
+        <p class="user-name">user login</p>
+        <a ui-sref="login">logoff</a>
+      </div>
+    </div>
+
+    <div class="page-content" ui-view></div>
+  </div>
+
+  <div class="well well-sm footer row">
+    <p class="text-center col-lg-12">Copyright 2016 Maryna Derevianko</p>
+  </div>
+
+  <script src="/view-addcourse/addcourse.js"></script>
+</body>
+</html>
