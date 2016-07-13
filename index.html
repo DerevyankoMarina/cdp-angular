@@ -1,18 +1,19 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="cdpSpa">
+<html lang="en" ng-app="app">
 <head>
   <meta charset="UTF-8">
   <title>CDP SPA</title>
 
-  <link rel="stylesheet" href="bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="app.css"/>
 
-  <script src="angular.js"></script>
-  <script src="angular-ui-router.js"></script>
-  <script src="angular-mocks.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.7/angular-mocks.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.1/angular-ui-router.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-resource.min.js"></script>
+  <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.14.0.js"></script>
 
   <script src="app.js"></script>
-
 
 </head>
 <body ng-controller="mainController">
@@ -37,6 +38,7 @@
       </div>
     </div>
 
+    <div>{{title}}</div>
     <div class="page-content" ui-view></div>
   </div>
 
@@ -44,6 +46,9 @@
     <p class="text-center col-lg-12">Copyright 2016 Maryna Derevianko</p>
   </div>
 
-  <script src="/view-addcourse/addcourse.js"></script>
+
+  <script src="view-login/login.controller.js"></script>
+  <script src="view-courses/courses.controller.js"></script>
+  <script src="view-editcourse/editCourse.controller.js"></script>
 </body>
 </html>

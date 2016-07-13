@@ -5,76 +5,25 @@
         <input type="text" class="form-control" id="course-param" placeholder="Фрагмент имени или дата">
         <input type="button" class="btn btn-primary" value="Найти" />
       </div>
-      <button class="btn btn-success add-course col-lg-offset-4 col-lg-2">Добавить курс</button>
+      <button class="btn btn-success add-course col-lg-offset-4 col-lg-2" ng-click="new()">Добавить курс</button>
     </form>
   </div>
 
+<!--  ng-repeat="course in courses track by $index"-->
   <div class="courses-container">
-    <div class="course row">
+    <div class="course row" ng-repeat="course in courses">
       <div class="course-content col-lg-10">
         <div class="row course-title">
-          <h2 class="col-lg-4 v-align">Видеокурс</h2>
-          <div class="duration col-lg-2 v-align label label-info">1 час 30 мин</div>
-          <div class="date col-lg-1 col-lg-offset-4 v-align label label-info">today</div>
+          <h2 class="col-lg-4 v-align">{{course.title}}</h2>
+          <div class="duration col-lg-2 v-align label label-info">{{course.duration}}</div>
+          <div class="date col-lg-1 col-lg-offset-4 v-align label label-info">{{course.date}}</div>
         </div>
 
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto delectus distinctio dolore, eius ex exercitationem fugit itaque molestiae natus nostrum nulla perferendis praesentium quod recusandae rem similique tempora velit voluptas?</p>
-
+        <p>{{course.desc}}</p>
       </div>
       <div class="course-controls col-lg-2">
-        <button type="button" class="btn btn-primary btn-lg btn-block">Редактировать</button>
-        <button type="button" class="btn btn-warning btn-lg btn-block">Удалить</button>
-      </div>
-    </div>
-
-    <div class="course row">
-      <div class="course-content col-lg-10">
-        <div class="row course-title">
-          <h2 class="col-lg-4 v-align">Видеокурс</h2>
-          <div class="duration col-lg-2 v-align label label-info">1 час 30 мин</div>
-          <div class="date col-lg-1 col-lg-offset-4 v-align label label-info">today</div>
-        </div>
-
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto delectus distinctio dolore, eius ex exercitationem fugit itaque molestiae natus nostrum nulla perferendis praesentium quod recusandae rem similique tempora velit voluptas?</p>
-
-      </div>
-      <div class="course-controls col-lg-2">
-        <button type="button" class="btn btn-primary btn-lg btn-block">Редактировать</button>
-        <button type="button" class="btn btn-warning btn-lg btn-block">Удалить</button>
-      </div>
-    </div>
-
-    <div class="course row">
-      <div class="course-content col-lg-10">
-        <div class="row course-title">
-          <h2 class="col-lg-4 v-align">Видеокурс</h2>
-          <div class="duration col-lg-2 v-align label label-info">1 час 30 мин</div>
-          <div class="date col-lg-1 col-lg-offset-4 v-align label label-info">today</div>
-        </div>
-
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto delectus distinctio dolore, eius ex exercitationem fugit itaque molestiae natus nostrum nulla perferendis praesentium quod recusandae rem similique tempora velit voluptas?</p>
-
-      </div>
-      <div class="course-controls col-lg-2">
-        <button type="button" class="btn btn-primary btn-lg btn-block">Редактировать</button>
-        <button type="button" class="btn btn-warning btn-lg btn-block">Удалить</button>
-      </div>
-    </div>
-
-    <div class="course row">
-      <div class="course-content col-lg-10">
-        <div class="row course-title">
-          <h2 class="col-lg-4 v-align">Видеокурс</h2>
-          <div class="duration col-lg-2 v-align label label-info">1 час 30 мин</div>
-          <div class="date col-lg-1 col-lg-offset-4 v-align label label-info">today</div>
-        </div>
-
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto delectus distinctio dolore, eius ex exercitationem fugit itaque molestiae natus nostrum nulla perferendis praesentium quod recusandae rem similique tempora velit voluptas?</p>
-
-      </div>
-      <div class="course-controls col-lg-2">
-        <button type="button" class="btn btn-primary btn-lg btn-block">Редактировать</button>
-        <button type="button" class="btn btn-warning btn-lg btn-block">Удалить</button>
+        <button type="button" class="btn btn-primary btn-lg btn-block" ng-click="edit(course.id)">Редактировать</button>
+        <button type="button" class="btn btn-warning btn-lg btn-block" ng-click="remove(course.id)">Удалить</button>
       </div>
     </div>
   </div>

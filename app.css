@@ -33,6 +33,15 @@ body,html{
 	float: none;
 }
 
+.login-form input.ng-invalid.ng-dirty {
+	border: 1px solid #FA787E;
+}
+
+.login-form input.ng-valid.ng-dirty {
+	border: 1px solid #78FA89;
+}
+
+
 /*all courses*/
 .search-course {
 	margin-bottom: 30px;

@@ -1,76 +1,47 @@
 (function() {
-  var app = angular.module('cdpSpa',  ["ui.router"])
-    .controller('mainController', function($scope) {
-      $scope.title = "Hello!";
-      $scope.phones = [
-        { 'name': '1',
-          'snippet': 'dshjvbdfhj vfdbvjhdf vdfvd'},
-        { 'name': '2',
-          'snippet': 'dshjvbdfhj vfdbvjhdf vdfvd'},
-        { 'name': '3',
-          'snippet': 'dshjvbdfhj vfdbvjhdf vdfvd'}
+  var app = angular.module('app',  ['ui.router']);
 
-      ];
+  app.controller('mainController', mainController);
 
-    });
+  function mainController($scope) {
+    $scope.title = 'mainController';
+  }
 
   app.config(function($stateProvider, $urlRouterProvider){
 
     // For any unmatched url, send to /login
-    $urlRouterProvider.otherwise("login");
+    $urlRouterProvider.otherwise('login');
 
     $stateProvider
       .state('login', {
-        url: "login",
-        templateUrl: "./view-login/login.html"
+        url: '/login',
+        templateUrl: 'view-login/login.html',
+        controller: 'loginController'
       })
       .state('courses', {
-        url: "/courses",
-        templateUrl: "./view-courses/courses.html"
+        url: '/courses',
+        controller: 'coursesController',
+        templateUrl: 'view-courses/courses.html'
       })
 
       .state('editcourse', {
-        url: "/edit",
-        templateUrl: "./view-editcourse/editCourse.html"
+        url: "/courses/:id",
+        controller: 'editController',
+        templateUrl: 'view-editcourse/editCourse.html',
+        params: {
+          id: {
+            value: '1'
+          }
+        }
+
       })
       .state('addcourse', {
-        url: "/add",
-        templateUrl: "./view-addcourse/addcourse.html"
+        url: 'courses/new',
+        templateUrl: 'view-addcourse/addcourse.html',
+        controller: 'editController'
       })
   });
-
-
-/*
-  app.config(function($routeProvider) {
-    $routeProvider
-      .when("/", {
-        templateUrl : "index.html"
-      })
-/!*      .when("/login", {
-        templateUrl : "login.html"
-      })*!/
-      /!* .when("/all-courses", {
-        templateUrl : "components/courses/addcourse.html"
-      })
-      .when("/edit-course", {
-        templateUrl : "components/editCourse/editCourse.html"
-      })*!/;
-  });
-*/
 
 
 })();
 
-
-
-
-/*  .factory('funnyFct', () => ({
-    makeFun() {
-      return 'Ha-ha-ha';
-    }
-  }))
-  .controller('ViewDevCtrl', funnyFct => {
-    // after some exhausting job
-    console.log(132);
-    funnyFct.makeFun();
-  });*/
