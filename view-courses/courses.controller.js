@@ -1,41 +1,45 @@
 (function () {
-  angular.module('app')
-    .controller('coursesController', function($scope, $state) {
-      console.log('coursesController');
-      $scope.edit = function(courseId) {
-        //$state.go('editcourse',{id: courseId} )
-      };
+  angular
+      .module('app')
+      .controller('coursesController', coursesController);
 
-      $scope.new = function() {
-        $state.go('addcourse');
-      };
 
-      $scope.edit = function(id) {
-        $state.go('editcourse/1');
-      };
+  function coursesController ($scope, $state) {
+    console.log('coursesController');
+    $scope.edit = function(courseId) {
+      //$state.go('editcourse',{id: courseId} )
+    };
 
-      $scope.remove = function(id) {
-        console.log('Remove this course');
-      };
+    $scope.new = function() {
+      $state.go('addcourse');
+    };
 
-      $scope.courses = [
-        { 'title': 'Видеокурс1',
-          'desc': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto delectus distinctio dolore, eius ex exercitationem fugit itaque molestiae natus nostrum nulla perferendis praesentium quod recusandae rem similique tempora velit voluptas',
-          'date': 'today',
-          'duration': '01:30'
-        },
-        { 'title': 'Видеокурс2',
-          'desc': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto delectus distinctio dolore, eius ex exercitationem fugit itaque molestiae natus nostrum nulla perferendis praesentium quod recusandae rem similique tempora velit voluptas',
-          'date': 'today',
-          'duration': '01:30'
-        },
-        { 'title': 'Видеокурс3',
-          'desc': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto delectus distinctio dolore, eius ex exercitationem fugit itaque molestiae natus nostrum nulla perferendis praesentium quod recusandae rem similique tempora velit voluptas',
-          'date': 'today',
-          'duration': '01:30'
-        }
-      ];
-    });
+    $scope.edit = function(id) {
+      $state.go('editcourse/1');
+    };
+
+    $scope.remove = function(id) {
+      console.log('Remove this course');
+    };
+
+    $scope.courses = [
+      { 'title': 'Видеокурс1',
+        'desc': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto delectus distinctio dolore, eius ex exercitationem fugit itaque molestiae natus nostrum nulla perferendis praesentium quod recusandae rem similique tempora velit voluptas',
+        'date': 'today',
+        'duration': '01:30'
+      },
+      { 'title': 'Видеокурс2',
+        'desc': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto delectus distinctio dolore, eius ex exercitationem fugit itaque molestiae natus nostrum nulla perferendis praesentium quod recusandae rem similique tempora velit voluptas',
+        'date': 'today',
+        'duration': '01:30'
+      },
+      { 'title': 'Видеокурс3',
+        'desc': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto delectus distinctio dolore, eius ex exercitationem fugit itaque molestiae natus nostrum nulla perferendis praesentium quod recusandae rem similique tempora velit voluptas',
+        'date': 'today',
+        'duration': '01:30'
+      }
+    ];
+  };
 
 
 

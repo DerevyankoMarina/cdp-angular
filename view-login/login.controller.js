@@ -1,17 +1,39 @@
 (function() {
-  angular.module('app').controller('loginController', loginController);
+  angular
+      .module('app')
+      .controller('loginController', loginController);
 
-  function loginController ($scope) {
-    $scope.title = "Hello!";
+  //loginController.$inject = ['AuthenticationService'];
 
-    $scope.login = function() {
-      console.log('login');
+  function loginController ($scope, $http, $state, $rootScope) {
+    $scope.user = {
+      'login': '',
+      'password': ''
     };
 
-    console.log('login page');
-  }
+    $scope.correctCreds = true; // hide incorrect creds message
+    $rootScope.username = null; // display user name after login
 
+   // var user = $scope.user;
+
+    $scope.login = function(user) {
+      console.log('getUsers', user);
+      $http.post('/users', user).success(function(data) {
+
+        if(data) {
+          $state.go('courses');
+          $rootScope.username = user.login; // display user name after login
+        } else {
+          $scope.correctCreds = false; // show incorrect creds message
+          $scope.user.password = '';
+        }
+      });
+    };
+
+  }
 })();
+
+// TODO: save user creds in LocalStorage, separate service
 
 
 

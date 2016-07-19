@@ -8,12 +8,14 @@
   <link rel="stylesheet" type="text/css" href="app.css"/>
 
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.7/angular-mocks.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-messages.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-mocks.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.1/angular-ui-router.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-resource.min.js"></script>
   <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.14.0.js"></script>
 
   <script src="app.js"></script>
+
 
 </head>
 <body ng-controller="mainController">
@@ -25,30 +27,24 @@
       <a ui-sref="addcourse">add course</a>
     </ul>
 
-    <div class="header well well-sm row">
-      <a href="#" class="logo col-lg-1">
-        <img src="#" width="50px" height="50px" alt="logo" class="img-circle">
-      </a>
-      <h1 class="col-lg-2 logo-title">Logo</h1>
-      <a class="btn btn-default col-lg-1" href="#" role="button">Курсы</a>
+    <header-app></header-app>
 
-      <div class="col-lg-2 col-lg-offset-6 text-right">
-        <p class="user-name">user login</p>
-        <a ui-sref="login">logoff</a>
-      </div>
-    </div>
-
-    <div>{{title}}</div>
     <div class="page-content" ui-view></div>
   </div>
 
-  <div class="well well-sm footer row">
-    <p class="text-center col-lg-12">Copyright 2016 Maryna Derevianko</p>
-  </div>
+  <footer-app></footer-app>
 
-
+  <!--controllers-->
   <script src="view-login/login.controller.js"></script>
   <script src="view-courses/courses.controller.js"></script>
   <script src="view-editcourse/editCourse.controller.js"></script>
+
+  <!--services-->
+  <script src="services/authentication.service.js"></script>
+
+  <!--components-->
+  <script src="components/footer/footer.component.js"></script>
+  <script src="components/header/header.component.js"></script>
+
 </body>
 </html>

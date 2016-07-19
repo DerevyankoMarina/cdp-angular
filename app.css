@@ -33,12 +33,34 @@ body,html{
 	float: none;
 }
 
+.message-container {
+	height: 50px;
+	margin-bottom: 20px;
+}
+
+.incorrec-creds {
+	background-color: #f2dede;
+	color: #a94442;
+	padding: 15px;
+	border: 1px solid #ebccd1;
+	border-radius: 4px;
+}
+
 .login-form input.ng-invalid.ng-dirty {
 	border: 1px solid #FA787E;
 }
 
 .login-form input.ng-valid.ng-dirty {
 	border: 1px solid #78FA89;
+}
+.hint-enter {
+	padding-top: 6px;
+}
+
+.hint-message {
+	height: 20px;
+	padding-top: 5px;
+	color: #ff0000;
 }
 
 
