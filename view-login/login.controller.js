@@ -3,8 +3,6 @@
       .module('app')
       .controller('loginController', loginController);
 
-  //loginController.$inject = ['AuthenticationService'];
-
   function loginController ($scope, $http, $state, $rootScope) {
     $scope.user = {
       'login': '',
@@ -12,7 +10,7 @@
     };
 
     $scope.correctCreds = true; // hide incorrect creds message
-    $rootScope.username = null; // display user name after login
+    $rootScope.username = "123"; // display user name after login
 
    // var user = $scope.user;
 

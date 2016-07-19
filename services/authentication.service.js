@@ -1,19 +1,12 @@
-/*
-(function () {
-  'use strict';
+(function() {
 
   angular
     .module('app')
     .factory('AuthenticationService', AuthenticationService);
 
-    AuthenticationService.$inject = ['$http', '$rootScope', '$timeout'];
-
-    function AuthenticationService($http, $cookieStore, $rootScope, $timeout, UserService) {
-      var service = {};
-
-    }
+  function AuthenticationService() {
+    console.log('AuthenticationService');
+  }
 
 
-
-
-})();*/
+})();
