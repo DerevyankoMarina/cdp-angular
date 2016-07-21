@@ -5,19 +5,8 @@
       .config(config)
       .run(run);
 
-  function mainController($scope, $state) {
-    $scope.title = 'mainController is working';
+  function mainController($scope, $state) {}
 
-    $scope.logoff = function() {
-      $state.go('login');
-    };
-
-    // get username after success auth. TODO: make with localStorage
-    $scope.$on('userLogged', function (event, data) {
-      console.log(data);
-      $scope.username = data.username;
-    });
-  }
 
   function config($stateProvider, $urlRouterProvider) {
     // For any unmatched url, send to /login
@@ -34,7 +23,6 @@
         controller: 'coursesController',
         templateUrl: 'view-courses/courses.view.html'
       })
-
       .state('editcourse', {
         url: "/courses/:id",
         controller: 'editController',
@@ -53,14 +41,8 @@
       })
   }
 
-  function run($httpBackend, UserService) {
-    console.log('run');
-    $httpBackend.whenGET(/^view-/).passThrough();
-    $httpBackend.whenGET(/tmpl/).passThrough();
-
+  function run(UserService) {
     UserService.setUsers();
-
-
   }
 
 })();

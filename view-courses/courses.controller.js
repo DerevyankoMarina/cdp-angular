@@ -3,11 +3,19 @@
       .module('app')
       .controller('coursesController', coursesController);
 
-  function coursesController ($scope, $state) {
-    console.log('coursesController is working');
+  function coursesController ($scope, $state, StorageService) {
+
+    $scope.logoff = function() {
+      StorageService.removeUsername('currentUser');
+      $state.go('login');
+    };
+
+    $scope.helloUser = function(key) {
+      return StorageService.getUsername(key);
+    };
 
     $scope.edit = function(courseId) {
-      //$state.go('editcourse',{id: courseId} )
+      $state.go('editcourse',{id: courseId} )
     };
 
     $scope.new = function() {
@@ -41,11 +49,6 @@
       }
     ];
   };
-
-
-
-
-
 })();
 
 

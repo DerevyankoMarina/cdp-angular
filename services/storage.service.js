@@ -1,25 +1,27 @@
 (function() {
-
   angular
     .module('app')
     .factory('StorageService', StorageService);
 
   function StorageService() {
-    console.log('StorageService');
 
-    return {
-      setUsername: function(key, value) {
-                      localStorage.setItem(key, value);
-                      console.log('setUsername: ' + value);
-                    },
+    function setUsername (key, value) {
+      localStorage.setItem(key, value);
+    }
 
-      getUsername: function(key) {
-                        return localStorage.getItem(key);
-                      }
+    function getUsername(key) {
+      return localStorage.getItem(key);
+    }
+
+    function removeUsername(key) {
+      localStorage.removeItem(key);
     }
 
 
+    return {
+      setUsername: setUsername,
+      getUsername: getUsername,
+      removeUsername: removeUsername
+    }
   }
-
-
 })();
