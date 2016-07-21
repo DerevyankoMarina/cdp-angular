@@ -5,10 +5,18 @@
       .config(config)
       .run(run);
 
-  config.$inject = ['$stateProvider', '$urlRouterProvider'];
+  function mainController($scope, $state) {
+    $scope.title = 'mainController is working';
 
-  function mainController($scope) {
-    $scope.title = 'mainController';
+    $scope.logoff = function() {
+      $state.go('login');
+    };
+
+    // get username after success auth. TODO: make with localStorage
+    $scope.$on('userLogged', function (event, data) {
+      console.log(data);
+      $scope.username = data.username;
+    });
   }
 
   function config($stateProvider, $urlRouterProvider) {
@@ -45,29 +53,13 @@
       })
   }
 
-  function run($httpBackend) {
+  function run($httpBackend, UserService) {
     console.log('run');
     $httpBackend.whenGET(/^view-/).passThrough();
     $httpBackend.whenGET(/tmpl/).passThrough();
 
-    var users = [{name: 'test', pass: 'test'}, {name: 'marina', pass: '54321'}];
+    UserService.setUsers();
 
-    function checkCreds (login, pass) {
-      for (var i = 0; i < users.length; i++) {
-       if (users[i].name === login && users[i].pass === pass) {
-         return true;
-       } else {
-         continue;
-       }
-      }
-    }
-
-    $httpBackend.whenPOST('/users').respond(function(method, url, data) {
-      var user = JSON.parse(data);
-      var res = checkCreds(user.login, user.password);
-      return [200, res, {}];
-      //return users;
-    });
 
   }
 

@@ -1,12 +1,24 @@
 <div class="container">
   <div class="row">
-    <form class="form-inline search-course clearfix">
+    <!--<form class="form-inline search-course clearfix">
       <div class="form-group col-lg-6">
         <input type="text" class="form-control" id="course-param" placeholder="Фрагмент имени или дата">
         <input type="button" class="btn btn-primary" value="Найти" />
       </div>
       <button class="btn btn-success add-course col-lg-offset-4 col-lg-2" ng-click="new()">Добавить курс</button>
-    </form>
+    </form>-->
+
+    <div class="panel col-lg-6">
+      <div class="input-group">
+        <input type="text" class="form-control" id="course-param" placeholder="Фрагмент имени или дата">
+        <span class="input-group-btn">
+          <input type="button" class="btn btn-primary" value="Найти" />
+        </span>
+      </div>
+    </div>
+    <button class="btn btn-success add-course col-lg-offset-4 col-lg-2" ng-click="new()">Добавить курс</button>
+
+
   </div>
 
 <!--  ng-repeat="course in courses track by $index"-->

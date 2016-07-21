@@ -1,4 +1,3 @@
-/*
 (function() {
 
   angular
@@ -8,34 +7,31 @@
     function UserService($httpBackend) {
       var users = [{name: 'test', pass: 'test'}, {name: 'marina', pass: '54321'}];
 
-      return {
-        setUsers: function() {
-          console.log('setUsers');
-          $httpBackend.whenGET(/^view-/).passThrough();
-          $httpBackend.whenGET(/tmpl/).passThrough();
+      var service = {};
 
-          var users = [{name: 'test', pass: 'test'}, {name: 'marina', pass: '54321'}];
+      service.setUsers = function() {
+        var users = [{name: 'test', pass: 'test'}, {name: 'marina', pass: '54321'}];
+        console.log(users);
 
-          function checkCreds (login, pass) {
-            for (var i = 0; i < users.length; i++) {
-              if (users[i].name === login && users[i].pass === pass) {
-                return true;
-              } else {
-                continue;
-              }
+        function checkCreds (login, pass) {
+          for (var i = 0; i < users.length; i++) {
+            if (users[i].name === login && users[i].pass === pass) {
+              return true;
             }
           }
-
-          $httpBackend.whenPOST('/users').respond(function(method, url, data) {
-            var user = JSON.parse(data);
-            var res = checkCreds(user.login, user.password);
-            return [200, res, {}];
-            //return users;
-          });
         }
-      }
+
+        $httpBackend.whenPOST('/users').respond(function(method, url, data) {
+          var user = JSON.parse(data);
+          var check = checkCreds(user.login, user.password);
+          var res = {success: check, username: user.login};
+          return [200, res, {}];
+        });
+      };
+
+      return service;
 
     }
 
 
-})();*/
+})();

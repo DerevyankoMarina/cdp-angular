@@ -3,9 +3,9 @@
       .module('app')
       .controller('coursesController', coursesController);
 
-
   function coursesController ($scope, $state) {
-    console.log('coursesController');
+    console.log('coursesController is working');
+
     $scope.edit = function(courseId) {
       //$state.go('editcourse',{id: courseId} )
     };
@@ -21,6 +21,7 @@
     $scope.remove = function(id) {
       console.log('Remove this course');
     };
+
 
     $scope.courses = [
       { 'title': 'Видеокурс1',

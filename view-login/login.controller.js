@@ -3,24 +3,33 @@
       .module('app')
       .controller('loginController', loginController);
 
-  function loginController ($scope, $http, $state, $rootScope) {
+  //loginController.$inject = ['StorageService']; // TODO: save user creds in LocalStorage, separate service. It does not work now ((
+
+  function loginController ($scope, $http, $state, $rootScope, StorageService) {
+    console.log('loginController');
+    console.log(StorageService);
+
     $scope.user = {
       'login': '',
       'password': ''
     };
 
     $scope.correctCreds = true; // hide incorrect creds message
-    $rootScope.username = "123"; // display user name after login
-
-   // var user = $scope.user;
 
     $scope.login = function(user) {
-      console.log('getUsers', user);
       $http.post('/users', user).success(function(data) {
 
-        if(data) {
+        if(data.success) {
+          $rootScope.$broadcast('userLogged', {
+            username: data.username
+          });
+
+          StorageService.setUsername('login', data.username);
+
+
+          //TODO: save username to storage // {currentUser: data.username}
           $state.go('courses');
-          $rootScope.username = user.login; // display user name after login
+
         } else {
           $scope.correctCreds = false; // show incorrect creds message
           $scope.user.password = '';
@@ -31,7 +40,6 @@
   }
 })();
 
-// TODO: save user creds in LocalStorage, separate service
 
 
 
