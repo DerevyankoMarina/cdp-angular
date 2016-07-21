@@ -3,15 +3,15 @@
       .module('app')
       .controller('coursesController', coursesController);
 
-  function coursesController ($scope, $state, StorageService) {
+  function coursesController ($scope, $state, AuthenticationService) {
 
     $scope.logoff = function() {
-      StorageService.removeUsername('currentUser');
+      AuthenticationService.removeUsername('currentUser');
       $state.go('login');
     };
 
     $scope.helloUser = function(key) {
-      return StorageService.getUsername(key);
+      return AuthenticationService.getUsername(key);
     };
 
     $scope.edit = function(courseId) {

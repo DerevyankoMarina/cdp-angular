@@ -3,7 +3,7 @@
       .module('app')
       .controller('loginController', loginController);
 
-  function loginController ($scope, $http, $state, $rootScope, StorageService) {
+  function loginController ($scope, $http, $state, AuthenticationService) {
     $scope.user = {
       'login': '',
       'password': ''
@@ -15,11 +15,7 @@
       $http.post('/users', user).success(function(data) {
 
         if(data.success) {
-          $rootScope.$broadcast('userLogged', {
-            username: data.username
-          });
-
-          StorageService.setUsername('currentUser', data.username);
+          AuthenticationService.setUsername('currentUser', data.username);
           $state.go('courses');
 
         } else {

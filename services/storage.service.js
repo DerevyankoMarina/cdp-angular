@@ -5,23 +5,22 @@
 
   function StorageService() {
 
-    function setUsername (key, value) {
+    function setData (key, value) {
       localStorage.setItem(key, value);
     }
 
-    function getUsername(key) {
+    function getData(key) {
       return localStorage.getItem(key);
     }
 
-    function removeUsername(key) {
+    function removeData(key) {
       localStorage.removeItem(key);
     }
 
-
     return {
-      setUsername: setUsername,
-      getUsername: getUsername,
-      removeUsername: removeUsername
+      setData: setData,
+      getData: getData,
+      removeData: removeData
     }
   }
 })();
