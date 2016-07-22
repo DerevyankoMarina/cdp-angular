@@ -41,8 +41,9 @@
       })
   }
 
-  function run(UserService) {
+  function run(UserService, CoursesService) {
     UserService.setUsers();
+    CoursesService.setCourses();
   }
 
 })();

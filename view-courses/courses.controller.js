@@ -3,7 +3,7 @@
       .module('app')
       .controller('coursesController', coursesController);
 
-  function coursesController ($scope, $state, AuthenticationService, $http) {
+  function coursesController ($scope, $state, AuthenticationService, $http, $resource) {
 
     $scope.logoff = function() {
       AuthenticationService.removeUsername('currentUser');
@@ -36,31 +36,21 @@
       console.log('Remove this course');
     };
 
-/*    $scope.courses = $http.get('../data/data.json').success(function(data) {
-      console.log(data);
+
+
+    var ItemResource = $resource('/courses/:id', { id: '@id' });
+
+    $scope.courses = ItemResource.query(function() {
+      console.log($scope.courses);
+    });
+
+
+
+/*    $scope.courses = $http.get('/courses').success(function(data) {
+      $scope.courses = data;
     });*/
 
 
-      $scope.courses = [
-      { 'title': 'Видеокурс1',
-        'desc': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto delectus distinctio dolore, eius ex exercitationem fugit itaque molestiae natus nostrum nulla perferendis praesentium quod recusandae rem similique tempora velit voluptas',
-        'date': 'today',
-        'duration': '01:30',
-        'id': 1
-      },
-      { 'title': 'Видеокурс2',
-        'desc': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto delectus distinctio dolore, eius ex exercitationem fugit itaque molestiae natus nostrum nulla perferendis praesentium quod recusandae rem similique tempora velit voluptas',
-        'date': 'today',
-        'duration': '01:30',
-        'id': 2
-      },
-      { 'title': 'Видеокурс3',
-        'desc': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto delectus distinctio dolore, eius ex exercitationem fugit itaque molestiae natus nostrum nulla perferendis praesentium quod recusandae rem similique tempora velit voluptas',
-        'date': 'today',
-        'duration': '01:30',
-        'id': 3
-      }
-    ];
   }
 })();
 
