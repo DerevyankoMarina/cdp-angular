@@ -1,0 +1,17 @@
+[
+  { 'title': 'Видеокурс1',
+    'desc': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto delectus distinctio dolore, eius ex exercitationem fugit itaque molestiae natus nostrum nulla perferendis praesentium quod recusandae rem similique tempora velit voluptas',
+    'date': 'today',
+    'duration': '01:30'
+  },
+  { 'title': 'Видеокурс2',
+    'desc': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto delectus distinctio dolore, eius ex exercitationem fugit itaque molestiae natus nostrum nulla perferendis praesentium quod recusandae rem similique tempora velit voluptas',
+    'date': 'today',
+    'duration': '01:30'
+  },
+  { 'title': 'Видеокурс3',
+    'desc': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto delectus distinctio dolore, eius ex exercitationem fugit itaque molestiae natus nostrum nulla perferendis praesentium quod recusandae rem similique tempora velit voluptas',
+    'date': 'today',
+    'duration': '01:30'
+  }
+]

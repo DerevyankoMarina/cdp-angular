@@ -16,7 +16,7 @@
         </span>
       </div>
     </div>
-    <button class="btn btn-success add-course col-lg-offset-4 col-lg-2" ng-click="new()">Добавить курс</button>
+    <button class="btn btn-success add-course col-lg-offset-4 col-lg-2" ng-click="addCourse()">Добавить курс</button>
 
 
   </div>
@@ -24,7 +24,7 @@
 <!--  ng-repeat="course in courses track by $index"-->
   <div class="courses-container">
     <div class="course row" ng-repeat="course in courses">
-      <div class="course-content col-lg-10">
+      <div class="course-content col-lg-10" data-id="{{course.id}}">
         <div class="row course-title">
           <h2 class="col-lg-4 v-align">{{course.title}}</h2>
           <div class="duration col-lg-2 v-align label label-info">{{course.duration}}</div>
@@ -34,8 +34,8 @@
         <p>{{course.desc}}</p>
       </div>
       <div class="course-controls col-lg-2">
-        <button type="button" class="btn btn-primary btn-lg btn-block" ng-click="edit(course.id)">Редактировать</button>
-        <button type="button" class="btn btn-warning btn-lg btn-block" ng-click="remove(course.id)">Удалить</button>
+        <button type="button" class="btn btn-primary btn-lg btn-block" ng-click="edit(course)">Редактировать</button>
+        <button type="button" class="btn btn-warning btn-lg btn-block" ng-click="remove(course)">Удалить</button>
       </div>
     </div>
   </div>

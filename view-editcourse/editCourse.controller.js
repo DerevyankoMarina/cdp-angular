@@ -3,17 +3,14 @@
       .module('app')
       .controller('editController', editController);
 
-
-  function editController ($scope) {
-    $scope.title = "add/edit course!";
-
-    $scope.toAllCourses = function() {
-      console.log('back to courses page');
-
-      $state.go('courses');  // angular.js:13708 ReferenceError: $state is not defined
+  function editController ($scope, $state) {
+    $scope.create = function(course) {
+      console.log(course);
     };
 
-    console.log('editController');
+    $scope.toAllCourses = function() {
+      $state.go('courses');
+    }
   }
 })();
 

@@ -1,6 +1,6 @@
 (function() {
   angular
-      .module('app',  ['ui.router', 'ngMessages', 'ngMockE2E'])
+      .module('app',  ['ui.router', 'ngMessages', 'ngMockE2E', 'ngResource'])
       .controller('mainController', mainController)
       .config(config)
       .run(run);
