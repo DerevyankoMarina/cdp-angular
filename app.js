@@ -7,10 +7,9 @@
 
   function mainController($scope, $state) {}
 
-
   function config($stateProvider, $urlRouterProvider) {
     // For any unmatched url, send to /login
-    $urlRouterProvider.otherwise('login');
+    $urlRouterProvider.otherwise('/login');
 
     $stateProvider
       .state('login', {
@@ -41,9 +40,9 @@
       })
   }
 
-  function run(UserService, CoursesService) {
+  function run(UserService, CoursesMockService) {
     UserService.setUsers();
-    CoursesService.setCourses();
+    CoursesMockService.setCourses();
   }
 
 })();
