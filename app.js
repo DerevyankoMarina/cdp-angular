@@ -19,7 +19,7 @@
       })
       .state('courses', {
         url: '/courses',
-        template: `<courses></courses>`
+        template: '<courses></courses>'
       })
       .state('editcourse', {
         url: "/courses/:id",

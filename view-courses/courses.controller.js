@@ -17,8 +17,10 @@
 
 /*remove current course*/
     vm.remove = function(item) {
-      console.log('remove current course');
-      //CoursesService.remove({id: item.id});
+      console.log(item);
+      CoursesService.remove(item, function(res) {
+        console.log(res);
+      });
     };
 
 

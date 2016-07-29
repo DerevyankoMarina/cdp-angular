@@ -14,7 +14,6 @@
       !!course.id ? update(course) : create(course);
     };
 
-
 //private methods
     function update(course) {
       console.log('update course: ', course);
@@ -23,9 +22,10 @@
 
     function create(course) {
       console.log('new course: ', course);
-      CoursesService.save(course);
+      CoursesService.save(course).$promise.then(function(data) {
+        console.log(data);
+      })
     }
-
 
 
   }

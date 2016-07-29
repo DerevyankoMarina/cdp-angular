@@ -1,0 +1,1 @@
+var appCourses = angular.module('app-courses', []);

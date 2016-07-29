@@ -26,7 +26,7 @@
         var id = getId(url);
         for (var i = 0; i < courses.length; i++) {
           if(courses[i].id === id) {
-            courses[i] = data;
+            courses[i] = JSON.parse(data);
           }
         }
         console.log('updating course: ', data);
@@ -34,15 +34,28 @@
       });
 
       //create cource
-      $httpBackend.whenPOST('/courses/new').respond(function(method, url, data) {
+      $httpBackend.whenPOST('/courses').respond(function(method, url, data) {
         console.log('/courses/new: ', data);
-        //return [200, courses, {}];
+        var newCourse = JSON.parse(data);
+        newCourse.id = +new Date;
+        courses.push(newCourse);
+        return [200, courses, {}];
       });
 
       //delete cource
-      $httpBackend.whenDELETE('/courses/:id').respond(function(method, url, data) {
+      $httpBackend.whenDELETE(/courses\/\d*/).respond(function(method, url, data) {
+        console.log(method);
+        console.log(url);
         console.log(data);
-        return [200, success, {}];
+        /*var id = getId(url);
+        for (var i = 0; i < courses.length; i++) {
+          if(courses[i].id === id) {
+            courses.splice(i, 1);
+          }
+        }
+        return courses[i];*/
+        return data;
+
       });
     }
 
