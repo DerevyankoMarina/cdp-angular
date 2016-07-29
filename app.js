@@ -1,6 +1,6 @@
 (function() {
   angular
-      .module('app',  ['ui.router', 'ngMessages', 'ngMockE2E', 'ngResource'])
+      .module('app',  ['ui.router', 'ngMessages', 'ngMockE2E', 'ngResource', 'header', 'footer'])
       .controller('mainController', mainController)
       .config(config)
       .run(run);
@@ -19,16 +19,16 @@
       })
       .state('courses', {
         url: '/courses',
-        controller: 'coursesController',
-        templateUrl: 'view-courses/courses.view.html'
+        template: `<courses></courses>`
       })
       .state('editcourse', {
         url: "/courses/:id",
         controller: 'editController',
         templateUrl: 'view-editcourse/editCourse.view.html',
+        controllerAs: 'editcourse',
         params: {
           id: {
-            value: '1'
+            value: '@id'
           }
         }
 
@@ -46,7 +46,3 @@
   }
 
 })();
-
-
-
-// https://endlessindirection.wordpress.com/2013/05/18/angularjs-delay-response-from-httpbackend/

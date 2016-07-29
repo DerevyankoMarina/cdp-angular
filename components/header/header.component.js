@@ -1,6 +1,7 @@
 angular
-    .module('app')
+    .module('header', [])
     .component('headerApp', {
       templateUrl: 'components/header/header.tmpl.html',
-      controller: 'coursesController'
+      controller: 'coursesController',
+      controllerAs: 'courses'
     });

@@ -14,7 +14,7 @@
 
 <!--  ng-repeat="course in courses track by $index"-->
   <div class="courses-container">
-    <div class="course row" ng-repeat="course in courses">
+    <div class="course row" ng-repeat="course in courses.courses">
       <div class="course-content col-lg-10" id="{{course.id}}">
         <div class="row course-title">
           <h2 class="col-lg-4 v-align">{{course.title}}</h2>
@@ -25,8 +25,8 @@
         <p>{{course.desc}}</p>
       </div>
       <div class="course-controls col-lg-2">
-        <button type="button" class="btn btn-primary btn-lg btn-block" ng-click="edit(course)">Редактировать</button>
-        <button type="button" class="btn btn-warning btn-lg btn-block" ng-click="remove(course)">Удалить</button>
+        <button type="button" class="btn btn-primary btn-lg btn-block" ng-click="courses.edit(course)">Редактировать</button>
+        <button type="button" class="btn btn-warning btn-lg btn-block" ng-click="courses.remove(course)">Удалить</button>
       </div>
     </div>
   </div>

@@ -9,12 +9,14 @@
     function setCourses() {
       //get all courses
       $httpBackend.whenGET('/courses').respond(function(method, url, data) {
+        console.log(url, courses);
         return [200, courses, {}];
       });
 
       //get particular course by id
       $httpBackend.whenGET(/courses\/\w+$/).respond(function(method, url, data) {
         var id = getId(url);
+
         var course = getById(id);
         return [200, course, {}];
       });
@@ -22,8 +24,13 @@
       //update course
       $httpBackend.whenPUT(/courses\/\w+$/).respond(function(method, url, data) {
         var id = getId(url);
-        console.log('/courses/new: ', data, id);
-        return [200, courses, {}];
+        for (var i = 0; i < courses.length; i++) {
+          if(courses[i].id === id) {
+            courses[i] = data;
+          }
+        }
+        console.log('updating course: ', data);
+        return data;
       });
 
       //create cource
@@ -41,7 +48,6 @@
 
 
     function create () {
-      //StorageService.setData(key, value);
     }
 
     function getById(id) {
@@ -53,7 +59,6 @@
     }
 
     function remove(key) {
-      //StorageService.removeData(key);
     }
 
     function getId(url) {
