@@ -9,14 +9,12 @@
     function setCourses() {
       //get all courses
       $httpBackend.whenGET('/courses').respond(function(method, url, data) {
-        console.log(url, courses);
         return [200, courses, {}];
       });
 
       //get particular course by id
       $httpBackend.whenGET(/courses\/\w+$/).respond(function(method, url, data) {
         var id = getId(url);
-
         var course = getById(id);
         return [200, course, {}];
       });
@@ -29,54 +27,27 @@
             courses[i] = JSON.parse(data);
           }
         }
-        console.log('updating course: ', data);
         return data;
       });
 
-      //create cource
+      //create course
       $httpBackend.whenPOST('/courses').respond(function(method, url, data) {
-        console.log('/courses/new: ', data);
         var newCourse = JSON.parse(data);
         newCourse.id = +new Date;
         courses.push(newCourse);
-        return [200, courses, {}];
+        return [200, newCourse, {}];
       });
 
-      //delete cource
+      //delete course
       $httpBackend.whenDELETE(/courses\/\d*/).respond(function(method, url, data) {
-        console.log(method);
-        console.log(url);
-        console.log(data);
-        /*var id = getId(url);
+        var id = getId(url);
         for (var i = 0; i < courses.length; i++) {
           if(courses[i].id === id) {
             courses.splice(i, 1);
           }
         }
-        return courses[i];*/
-        return data;
-
+        return [200, {}, {}];
       });
-    }
-
-
-    function create () {
-    }
-
-    function getById(id) {
-      for (var i = 0; i < courses.length; i++) {
-        if(courses[i].id === id) {
-          return courses[i];
-        }
-      }
-    }
-
-    function remove(key) {
-    }
-
-    function getId(url) {
-      var reg = /.*\/courses\/(\w+)/;
-      return parseInt(url.replace(reg, '$1'), 10);
     }
 
     return {
@@ -106,7 +77,18 @@
     }
   ];
 
+// private methods
+  function getById(id) {
+    for (var i = 0; i < courses.length; i++) {
+      if(courses[i].id === id) {
+        return courses[i];
+      }
+    }
+  }
 
-
+  function getId(url) {
+    var reg = /.*\/courses\/(\w+)/;
+    return parseInt(url.replace(reg, '$1'), 10);
+  }
 
 })();

@@ -10,21 +10,23 @@
       vm.courses = CoursesService.query();
     };
 
-/*redirect*/
+//redirect
     vm.edit = function(item) {
       $state.go('editcourse', {id: item.id} );
     };
 
-/*remove current course*/
+//remove current course
     vm.remove = function(item) {
-      console.log(item);
-      CoursesService.remove(item, function(res) {
-        console.log(res);
-      });
+      CoursesService.remove({id: item.id});
+
+      for (var i = 0; i < vm.courses.length; i++) {
+        if(vm.courses[i].id === item.id) {
+          vm.courses.splice(i, 1);
+        }
+      }
     };
 
-
-/*login section*/
+//login section
     vm.logoff = function() {
       AuthenticationService.removeUsername('currentUser');
       $state.go('login');
@@ -36,5 +38,3 @@
   }
 
 })();
-
-
