@@ -5,6 +5,7 @@
 
   coursesController.$inject = ['$state', 'AuthenticationService', 'CoursesService'];
 
+
   function coursesController ($state, AuthenticationService, CoursesService) {
     var vm = this;
 

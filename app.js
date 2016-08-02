@@ -8,6 +8,7 @@
         'header',
         'footer',
         'modal',
+        'app.login',
         'app.courses',
         'app.editcourse'
       ])
@@ -24,8 +25,7 @@
     $stateProvider
       .state('login', {
         url: '/login',
-        templateUrl: 'view-login/login.view.html',
-        controller: 'loginController'
+        template: '<login></login>'
       })
       .state('courses', {
         url: '/courses',

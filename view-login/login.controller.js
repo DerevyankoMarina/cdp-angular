@@ -1,17 +1,22 @@
 (function() {
   angular
-      .module('app')
+      .module('app.login')
       .controller('loginController', loginController);
 
+  loginController.$inject = ['$scope', '$http', '$state', 'AuthenticationService'];
+
   function loginController ($scope, $http, $state, AuthenticationService) {
-    $scope.user = {
+
+    var vm = this;
+
+    vm.user = {
       'login': '',
       'password': ''
     };
 
-    $scope.correctCreds = true; // hide incorrect creds message
+    vm.correctCreds = true; // hide incorrect creds message
 
-    $scope.login = function(user) {
+    vm.login = function(user) {
       $http.post('/users', user).success(function(data) {
 
         if(data.success) {

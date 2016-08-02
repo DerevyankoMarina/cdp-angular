@@ -3,6 +3,9 @@
       .module('app.editcourse')
       .controller('editController', editController);
 
+  editController.$inject = ['$state', 'CoursesService'];
+
+
   function editController ($state, CoursesService) {
     var vm = this;
 
