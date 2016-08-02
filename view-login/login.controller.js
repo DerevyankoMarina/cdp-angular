@@ -3,9 +3,9 @@
       .module('app.login')
       .controller('loginController', loginController);
 
-  loginController.$inject = ['$scope', '$http', '$state', 'AuthenticationService'];
+  loginController.$inject = ['$http', '$state', 'AuthenticationService'];
 
-  function loginController ($scope, $http, $state, AuthenticationService) {
+  function loginController ($http, $state, AuthenticationService) {
 
     var vm = this;
 
@@ -24,8 +24,8 @@
           $state.go('courses');
 
         } else {
-          $scope.correctCreds = false; // show incorrect creds message
-          $scope.user.password = '';
+          vm.correctCreds = false; // show incorrect creds message
+          vm.user.password = '';
         }
       });
     };

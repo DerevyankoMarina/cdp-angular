@@ -16,6 +16,10 @@
       .config(config)
       .run(run);
 
+  config.$inject = ['$stateProvider', '$urlRouterProvider'];
+  run.$inject = ['UserService', 'CoursesMockService'];
+
+
   function mainController($scope, $state) {}
 
   function config($stateProvider, $urlRouterProvider) {
@@ -33,9 +37,7 @@
       })
       .state('editcourse', {
         url: "/courses/:id",
-        controller: 'editController',
-        templateUrl: 'view-editcourse/editcourse.view.html',
-        controllerAs: 'editcourse',
+        template: '<editcourse></editcourse>',
         params: {
           id: {
             value: '@id'
@@ -45,9 +47,7 @@
       })
       .state('addcourse', {
         url: 'courses/new',
-        templateUrl: 'view-addcourse/addcourse.html',
-        controller: 'editController',
-        controllerAs: 'editcourse'
+        template: '<editcourse></editcourse>'
       })
   }
 

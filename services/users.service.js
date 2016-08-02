@@ -1,9 +1,9 @@
 (function() {
-
   angular
     .module('app')
     .factory('UserService', UserService);
 
+  UserService.$inject = ['$httpBackend'];
   var users = [{name: 'test', pass: 'test'}, {name: 'marina', pass: '54321'}];
 
   function UserService($httpBackend) {
@@ -32,6 +32,5 @@
       setUsers: setUsers
     };
   }
-
 
 })();

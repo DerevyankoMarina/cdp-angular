@@ -5,6 +5,15 @@
 
   function StorageService() {
 
+    var service = {
+      setData: setData,
+      getData: getData,
+      removeData: removeData
+    };
+
+    return service;
+
+
     function setData (key, value) {
       localStorage.setItem(key, value);
     }
@@ -15,12 +24,6 @@
 
     function removeData(key) {
       localStorage.removeItem(key);
-    }
-
-    return {
-      setData: setData,
-      getData: getData,
-      removeData: removeData
     }
   }
 })();

@@ -1,58 +1,59 @@
-angular
-  .module('modal')
-  .controller('modalController', modalController);
-
+(function() {
+  angular
+    .module('modal')
+    .controller('modalController', modalController);
 
   function modalController ($scope, $uibModal, $log) {
 
+    $scope.items = ['item1', 'item2', 'item3'];
 
+    $scope.animationsEnabled = true;
 
-  $scope.items = ['item1', 'item2', 'item3'];
+    $scope.open = function (size) {
 
-  $scope.animationsEnabled = true;
-
-  $scope.open = function (size) {
-
-    var modalInstance = $uibModal.open({
-      animation: $scope.animationsEnabled,
-      templateUrl: 'myModalContent.html',
-      controller: 'ModalInstanceCtrl',
-      size: size,
-      resolve: {
-        items: function () {
-          return $scope.items;
+      var modalInstance = $uibModal.open({
+        animation: $scope.animationsEnabled,
+        templateUrl: 'myModalContent.html',
+        controller: 'ModalInstanceCtrl',
+        size: size,
+        resolve: {
+          items: function () {
+            return $scope.items;
+          }
         }
-      }
-    });
+      });
 
-    modalInstance.result.then(function (selectedItem) {
-      $scope.selected = selectedItem;
-    }, function () {
-      $log.info('Modal dismissed at: ' + new Date());
-    });
-  };
+      modalInstance.result.then(function (selectedItem) {
+        $scope.selected = selectedItem;
+      }, function () {
+        $log.info('Modal dismissed at: ' + new Date());
+      });
+    };
 
-  $scope.toggleAnimation = function () {
-    $scope.animationsEnabled = !$scope.animationsEnabled;
+    $scope.toggleAnimation = function () {
+      $scope.animationsEnabled = !$scope.animationsEnabled;
+    };
   };
-};
 
 // Please note that $uibModalInstance represents a modal window (instance) dependency.
 // It is not the same as the $uibModal service used above.
 
-/*
-angular.module('ui.bootstrap.demo').controller('ModalInstanceCtrl', function ($scope, $uibModalInstance, items) {
+  /*
+   angular.module('ui.bootstrap.demo').controller('ModalInstanceCtrl', function ($scope, $uibModalInstance, items) {
 
-  $scope.items = items;
-  $scope.selected = {
-    item: $scope.items[0]
-  };
+   $scope.items = items;
+   $scope.selected = {
+   item: $scope.items[0]
+   };
 
-  $scope.ok = function () {
-    $uibModalInstance.close($scope.selected.item);
-  };
+   $scope.ok = function () {
+   $uibModalInstance.close($scope.selected.item);
+   };
 
-  $scope.cancel = function () {
-    $uibModalInstance.dismiss('cancel');
-  };
-});*/
+   $scope.cancel = function () {
+   $uibModalInstance.dismiss('cancel');
+   };
+   });*/
+
+})();
+
