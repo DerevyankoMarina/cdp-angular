@@ -46,7 +46,8 @@
             courses.splice(i, 1);
           }
         }
-        return [200, {}, {}];
+        var res = {success: true};
+        return [200, res, {}];
       });
     }
 

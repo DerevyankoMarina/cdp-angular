@@ -16,6 +16,10 @@ body,html{
 	margin: -40px 0 0 0;
 }
 
+.page-content {
+	margin-bottom: 100px;
+}
+
 /*header*/
 .header {
 	margin: 0 0 20px 0;

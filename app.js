@@ -1,6 +1,14 @@
 (function() {
   angular
-      .module('app',  ['ui.router', 'ngMessages', 'ngMockE2E', 'ngResource', 'header', 'footer'])
+      .module('app',  [
+        'ui.router',
+        'ngMessages',
+        'ngMockE2E',
+        'ngResource',
+        'header',
+        'footer',
+        'modal',
+        'app.courses'])
       .controller('mainController', mainController)
       .config(config)
       .run(run);
@@ -36,7 +44,8 @@
       .state('addcourse', {
         url: 'courses/new',
         templateUrl: 'view-addcourse/addcourse.html',
-        controller: 'editController'
+        controller: 'editController',
+        controllerAs: 'editcourse'
       })
   }
 

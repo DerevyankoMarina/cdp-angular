@@ -16,12 +16,10 @@
 
 //private methods
     function update(course) {
-      console.log('update course: ', course);
       CoursesService.update({id: vm.course.id}, course);
     }
 
     function create(course) {
-      console.log('new course: ', course);
       CoursesService.save(course).$promise.then(function(data) {
         console.log(data);
       })
