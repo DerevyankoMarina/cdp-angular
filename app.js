@@ -8,7 +8,9 @@
         'header',
         'footer',
         'modal',
-        'app.courses'])
+        'app.courses',
+        'app.editcourse'
+      ])
       .controller('mainController', mainController)
       .config(config)
       .run(run);
@@ -32,7 +34,7 @@
       .state('editcourse', {
         url: "/courses/:id",
         controller: 'editController',
-        templateUrl: 'view-editcourse/editCourse.view.html',
+        templateUrl: 'view-editcourse/editcourse.view.html',
         controllerAs: 'editcourse',
         params: {
           id: {

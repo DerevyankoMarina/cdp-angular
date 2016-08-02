@@ -1,6 +1,6 @@
 (function() {
   angular
-      .module('app')
+      .module('app.editcourse')
       .controller('editController', editController);
 
   function editController ($state, CoursesService) {
@@ -24,7 +24,5 @@
         console.log(data);
       })
     }
-
-
   }
 })();
