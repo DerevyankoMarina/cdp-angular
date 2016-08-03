@@ -3,10 +3,9 @@
       .module('app.courses')
       .controller('coursesController', coursesController);
 
-  coursesController.$inject = ['$state', 'AuthenticationService', 'CoursesService'];
+  coursesController.$inject = ['$state', 'CoursesService', 'modal', '$rootScope'];
 
-
-  function coursesController ($state, AuthenticationService, CoursesService) {
+  function coursesController ($state, CoursesService, modal, $rootScope) {
     var vm = this;
 
     vm.$onInit = function () {
@@ -20,15 +19,12 @@
 
 //remove current course
     vm.remove = function (item) {
-      CoursesService.remove({id: item.id}).$promise.then(function (data) {
-        if (data.success) {
-          for (var i = 0; i < vm.courses.length; i++) {
-            if (vm.courses[i].id === item.id) {
-              vm.courses.splice(i, 1);
-            }
-          }
-        }
-      });
+      modal.open(item);
     };
+
+// update courses' list
+    $rootScope.$on('updateCourses', function() {
+      vm.$onInit();
+    });
   }
 })();
