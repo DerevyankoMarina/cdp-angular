@@ -61,19 +61,19 @@
     { 'title': 'Видеокурс1',
       'desc': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto delectus distinctio dolore, eius ex exercitationem fugit itaque molestiae natus nostrum nulla perferendis praesentium quod recusandae rem similique tempora velit voluptas',
       'date': new Date(),
-      'duration': new Date(60000),
+      'duration': 120,
       'id': 1
     },
     { 'title': 'Видеокурс2',
       'desc': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto delectus distinctio dolore, eius ex exercitationem fugit itaque molestiae natus nostrum nulla perferendis praesentium quod recusandae rem similique tempora velit voluptas',
       'date': new Date(),
-      'duration': '12:30',
+      'duration': 90,
       'id': 2
     },
     { 'title': 'Видеокурс3',
       'desc': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto delectus distinctio dolore, eius ex exercitationem fugit itaque molestiae natus nostrum nulla perferendis praesentium quod recusandae rem similique tempora velit voluptas',
       'date': new Date(),
-      'duration': '10:30',
+      'duration': 75,
       'id': 3
     }
   ];

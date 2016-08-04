@@ -18,7 +18,7 @@
       <div class="course-content col-lg-10" id="{{course.id}}">
         <div class="row course-title">
           <h2 class="col-lg-4 v-align">{{course.title}}</h2>
-          <div class="duration col-lg-2 v-align label label-info">{{course.duration}}</div>
+          <div class="duration col-lg-2 v-align label label-info">{{course.duration | courseDuration}}</div>
           <div class="date col-lg-1 col-lg-offset-4 v-align label label-info">{{course.date | date:'dd.MM.yyyy'}}</div>
         </div>
 

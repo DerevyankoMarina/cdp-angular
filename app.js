@@ -7,7 +7,6 @@
         'ngResource',
         'header',
         'footer',
-        'modal',
         'app.login',
         'app.courses',
         'app.editcourse'
