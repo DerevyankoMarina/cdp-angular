@@ -1,5 +1,5 @@
 angular
-  .module('app.courses', ['modal'])
+  .module('app.courses', ['modal', 'filters'])
   .component('courses', {
     templateUrl: 'view-courses/courses.view.html',
     controller: 'coursesController',

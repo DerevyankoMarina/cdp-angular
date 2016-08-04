@@ -1,6 +1,6 @@
 (function() {
   angular
-    .module('app.courses')
+    .module('filters', [])
     .filter('courseDuration', courseDuration);
 
 
@@ -10,9 +10,8 @@
       var hours = Math.floor(hoursFraction);
       var minutes = value % 60;
 
+      if(!value) {return ""}
       return hours + ' ч. ' +  minutes + ' мин.';
     };
   }
-
-
 })();
